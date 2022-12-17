@@ -181,8 +181,72 @@ const person1 = new Person(1, 'Jack')
 const person2 = new Person(2, 'John')
 ```
 
-> TIP: class properties are public by default. we can also define private and protected properties (those will be only accessible within the class and its subclasses)
-> e.g. private id: number, protected name: string
+### Class constructor shorthand
+
+- avoids the need to declare the properties and assign them in the constructor
+
+```typescript
+class Person {
+  constructor(public id: number, public name: string) {}
+}
+```
+
+### readonly property
+
+- property that can not be modified
+
+```typescript
+class Person {
+  constructor(public readonly name: string) {}
+}
+```
+
+### private property
+
+- property that can only be accessed within the class
+
+```typescript
+class User {
+  private _fullName: string = ''
+}
+```
+
+> TIP: class properties are public by default. We can also define protected properties (those will be only accessible within the class and its subclasses)
+>
+> e.g. `protected _fullName: string = ''`
+
+### static property
+
+- property that can only be accessed without creating an instance of the class
+
+```typescript
+class User {
+  static userName = 'John'
+}
+User.userName
+```
+
+### Getter and Setter
+
+```typescript
+class User {
+  private _fullName: string = ''
+
+  get fullName(): string {
+    return this._fullName
+  }
+
+  set fullName(value: string) {
+    this._fullName = value
+  }
+}
+
+const user1 = new User()
+user1.fullName = 'John Doe'
+console.log(user1.fullName)
+```
+
+> Getters and setters can be used to perform additional tasks when a property is accessed or modified
 
 ## Extending Classes (Subclasses)
 
