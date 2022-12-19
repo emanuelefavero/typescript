@@ -78,6 +78,8 @@ union = 1
 
 TIP: You can also use interfaces (interface User {...}) -see below
 
+NOTE: **`Record<string, never>` means an empty object, use this instead of `{}`**
+
 ```typescript
 type User = {
   name: string

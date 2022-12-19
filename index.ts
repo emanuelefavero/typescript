@@ -28,6 +28,8 @@ union = 1
 
 // Objects
 // TIP: You can also use interfaces (interface User {...}) -see below
+
+// Record<string, never> means an empty object, use this instead of {}
 type User = {
   name: string
   age: number
