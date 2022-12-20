@@ -166,13 +166,7 @@ let customerIDAsNumber2 = <number>customerID
 
 ```typescript
 class Person {
-  id: number
-  name: string
-
-  constructor(id: number, name: string) {
-    this.id = id
-    this.name = name
-  }
+  constructor(public id: number, public name: string) {}
 
   register() {
     return `${this.name} is now registered`
@@ -183,13 +177,19 @@ const person1 = new Person(1, 'Jack')
 const person2 = new Person(2, 'John')
 ```
 
-### Class constructor shorthand
+### Classic way of declaring properties
 
-- avoids the need to declare the properties and assign them in the constructor
+- use the one you prefer
 
 ```typescript
 class Person {
-  constructor(public id: number, public name: string) {}
+  id: number
+  name: string
+
+  constructor(id: number, name: string) {
+    this.id = id
+    this.name = name
+  }
 }
 ```
 

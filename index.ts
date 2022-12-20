@@ -95,13 +95,7 @@ let customerIDAsNumber2 = <number>customerID
 // ------------------------------------------------------------
 // Classes
 class Person {
-  id: number
-  name: string
-
-  constructor(id: number, name: string) {
-    this.id = id
-    this.name = name
-  }
+  constructor(public id: number, public name: string) {}
 
   register() {
     return `${this.name} is now registered`
