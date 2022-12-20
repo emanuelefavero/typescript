@@ -254,11 +254,13 @@ console.log(user1.fullName)
 
 ```typescript
 class Employee extends Person {
-  position: string
-
-  constructor(id: number, name: string, position: string) {
+  constructor(id: number, name: string, public position: string) {
     super(id, name)
-    this.position = position
+  }
+
+  // Overriding a method
+  register() {
+    return `${this.name} is now registered as an employee`
   }
 }
 
@@ -275,13 +277,7 @@ interface FruitInterface {
 }
 
 class Fruit implements FruitInterface {
-  name: string
-  isFavorite: boolean
-
-  constructor(name: string, isFavorite: boolean) {
-    this.name = name
-    this.isFavorite = isFavorite
-  }
+  constructor(public name: string, public isFavorite: boolean) {}
 
   favorite() {
     if (this.isFavorite) {

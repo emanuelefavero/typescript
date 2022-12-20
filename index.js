@@ -1,5 +1,7 @@
 "use strict";
-// bash:
+// INSTALL TYPESCRIPT GLOBALLY
+// npm install -g typescript
+// RUN APP:
 // tsc --watch
 // nodemon index.js
 // Basic Types
@@ -75,8 +77,13 @@ class Employee extends Person {
         super(id, name);
         this.position = position;
     }
+    // Overriding a method
+    register() {
+        return `${this.name} is now registered as an employee`;
+    }
 }
 const employee1 = new Employee(1, 'James', 'Developer');
+console.log(employee1.register());
 class Fruit {
     constructor(name, isFavorite) {
         this.name = name;
@@ -123,4 +130,3 @@ var Color3;
     Color3["Blue"] = "#0000ff";
 })(Color3 || (Color3 = {}));
 let color3 = Color3.Blue; // '#0000ff'
-console.log('hello');

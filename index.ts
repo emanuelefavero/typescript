@@ -110,20 +110,25 @@ class Person {
 
 const person1 = new Person(1, 'Jack')
 const person2 = new Person(2, 'John')
+
 // TIP: class properties are public by default. we can also define private and protected properties (those will be only accessible within the class and its subclasses)
 // e.g. private id: number, protected name: string
 
 // Extending Classes (Subclasses)
 class Employee extends Person {
-  position: string
-
-  constructor(id: number, name: string, position: string) {
+  constructor(id: number, name: string, public position: string) {
     super(id, name)
-    this.position = position
+  }
+
+  // Overriding a method
+  register() {
+    return `${this.name} is now registered as an employee`
   }
 }
 
 const employee1 = new Employee(1, 'James', 'Developer')
+
+console.log(employee1.register())
 
 // Class Interface
 interface FruitInterface {
