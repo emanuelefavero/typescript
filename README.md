@@ -78,8 +78,6 @@ union = 1
 
 TIP: You can also use interfaces (interface User {...}) -see below
 
-NOTE: **`Record<string, never>` means an empty object, use this instead of `{}`**
-
 ```typescript
 type User = {
   name: string
@@ -89,6 +87,39 @@ type User = {
 const user: User = {
   name: 'Jack',
   age: 32,
+}
+```
+
+### Empty object
+
+> use this instead of `{}`\*\*
+
+```typescript
+interface User = Record<string, never>
+```
+
+### Object with any values
+
+```typescript
+interface User = {
+  [key: string]: any
+}
+```
+
+### Objects with optional properties
+
+```typescript
+interface User = {
+  name: string
+  age?: number
+}
+```
+
+### Objects with readonly properties
+
+```typescript
+interface User = {
+  readonly id: number
 }
 ```
 
