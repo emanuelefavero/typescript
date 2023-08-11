@@ -182,3 +182,19 @@ enum Color3 {
   Blue = '#0000ff',
 }
 let color3: Color3 = Color3.Blue // '#0000ff'
+
+// Pick - allows to pick a subset of properties from an object type
+interface User2 {
+  id: number
+  name: string
+  lastName: string
+  age: number
+}
+
+type Username = Pick<User2, 'name' | 'lastName'>
+
+// Omit - allows to omit a subset of properties from an object type
+type UserWithoutId = Omit<User2, 'id'>
+
+// Partial - allows to make all properties of an object type optional
+type PartialUser = Partial<User2>
