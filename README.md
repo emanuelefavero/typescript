@@ -37,6 +37,12 @@ npm install -g nodemon
 nodemon index.js
 ```
 
+OR use `nodemon` directly with `.ts` files
+
+```bash
+nodemon index.ts
+```
+
 ## Config file
 
 `tsconfig.json`
@@ -364,3 +370,21 @@ let color3: Color3 = Color3.Blue // '#0000ff'
 - [Typescript Docs](https://www.typescriptlang.org/docs/)
 - [Download Typescript](https://www.typescriptlang.org/download)
 - [Online Playground](https://www.typescriptlang.org/play)
+
+## Pick and Omit
+
+- `Pick`: create a new type from an existing type by picking some properties
+- `Omit`: create a new type from an existing type by omitting some properties
+
+```typescript
+interface User {
+  id: number
+  name: string
+  lastName: string
+  age: number
+}
+
+type Username = Pick<User, 'name' | 'lastName'>
+
+type UserWithoutId = Omit<User, 'id'>
+```
