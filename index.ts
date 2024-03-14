@@ -154,7 +154,7 @@ const mango = new Fruit('mango', true)
 
 // Generics (allow us to create reusable components)
 // <T> is a placeholder that allows to later define the type of the generic
-function getId<T>(id: T): T {
+function getId<T>(id: T) {
   return id
 }
 const numberId = getId<number>(1) // this function call will only accept numbers
