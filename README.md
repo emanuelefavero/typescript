@@ -43,6 +43,9 @@ OR use `nodemon` directly with `.ts` files
 nodemon index.ts
 ```
 
+> Note: If you get an error when running nodemon with typescript files, make sure you also have `ts-node` installed with:
+> `npm install -g ts-node`
+
 ## Config file
 
 `tsconfig.json`
