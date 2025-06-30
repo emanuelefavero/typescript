@@ -201,3 +201,9 @@ type PartialUser = Partial<User2>
 
 // Required - allows to make all properties of an object type required
 type RequiredUser = Required<User2>
+
+// Record - allows to create an object type with a specific set of keys and values
+let products: Record<string, number> = {
+  'MacBook Air': 12,
+  'AirPods Pro': 18,
+}

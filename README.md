@@ -411,3 +411,14 @@ type PartialUser = Partial<User>
 // All properties are required in RequiredUser type
 type RequiredUser = Required<User>
 ```
+
+## Record
+
+- `Record`: allows to create an object type with a specific set of keys and values
+
+```typescript
+let products: Record<string, number> = {
+  'MacBook Air': 12,
+  'AirPods Pro': 18,
+}
+```
