@@ -207,3 +207,7 @@ let products: Record<string, number> = {
   'MacBook Air': 12,
   'AirPods Pro': 18,
 }
+
+// Exclude - creates a new type by excluding specified types from a union type
+type Theme = 'light' | 'dark' | 'system'
+let themeSwitch: Exclude<Theme, 'system'> = 'light' // light | dark

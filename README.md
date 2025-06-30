@@ -422,3 +422,12 @@ let products: Record<string, number> = {
   'AirPods Pro': 18,
 }
 ```
+
+## Exclude
+
+- `Exclude`: creates a new type by excluding specified types from a union type
+
+```typescript
+type Theme = 'light' | 'dark' | 'system'
+let themeSwitch: Exclude<Theme, 'system'> = 'light' // light | dark
+```
