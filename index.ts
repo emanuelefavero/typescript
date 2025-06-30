@@ -234,3 +234,18 @@ let addParams: Parameters<typeof add2> = [5, 10] // [number, number]
 // Use addParams to call the function
 let sum = add2(...addParams)
 console.log(sum) // 15, (5 + 10)
+
+// Readonly - makes all properties in an object type read-only
+
+interface Username2 {
+  firstName: string
+  lastName: string
+}
+
+let user4: Readonly<Username2> = {
+  firstName: 'John',
+  lastName: 'Doe',
+}
+
+// Error: Cannot assign to 'firstName' because it is a read-only property:
+// user4.firstName = 'Jane'

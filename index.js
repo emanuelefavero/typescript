@@ -130,3 +130,34 @@ var Color3;
     Color3["Blue"] = "#0000ff";
 })(Color3 || (Color3 = {}));
 let color3 = Color3.Blue; // '#0000ff'
+// Record - allows to create an object type with a specific set of keys and values
+let products = {
+    'MacBook Air': 12,
+    'AirPods Pro': 18,
+};
+let themeSwitch = 'light'; // light | dark
+// Return Type - extracts the return type of a function
+function getUser() {
+    return {
+        name: 'Jane',
+        age: 28,
+    };
+}
+let userReturnType = {
+    name: 'Bob',
+    age: 25,
+};
+// Parameters - extracts the parameter types of a function
+function add2(a, b) {
+    return a + b;
+}
+let addParams = [5, 10]; // [number, number]
+// Use addParams to call the function
+let sum = add2(...addParams);
+console.log(sum); // 15, (5 + 10)
+let user4 = {
+    firstName: 'John',
+    lastName: 'Doe',
+};
+// Error: Cannot assign to 'firstName' because it is a read-only property:
+// user4.firstName = 'Jane'
