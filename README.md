@@ -431,3 +431,21 @@ let products: Record<string, number> = {
 type Theme = 'light' | 'dark' | 'system'
 let themeSwitch: Exclude<Theme, 'system'> = 'light' // light | dark
 ```
+
+## ReturnType
+
+- `ReturnType`: allows to extract the return type of a function type
+
+```typescript
+function getUser(): { name: string; age: number } {
+  return {
+    name: 'Jane',
+    age: 28,
+  }
+}
+
+let userReturnType: ReturnType<typeof getUser> = {
+  name: 'Bob',
+  age: 25,
+}
+```

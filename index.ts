@@ -211,3 +211,16 @@ let products: Record<string, number> = {
 // Exclude - creates a new type by excluding specified types from a union type
 type Theme = 'light' | 'dark' | 'system'
 let themeSwitch: Exclude<Theme, 'system'> = 'light' // light | dark
+
+// Return Type - extracts the return type of a function
+function getUser(): { name: string; age: number } {
+  return {
+    name: 'Jane',
+    age: 28,
+  }
+}
+
+let userReturnType: ReturnType<typeof getUser> = {
+  name: 'Bob',
+  age: 25,
+}
