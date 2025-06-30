@@ -188,7 +188,7 @@ interface User2 {
   id: number
   name: string
   lastName: string
-  age: number
+  age?: number
 }
 
 type Username = Pick<User2, 'name' | 'lastName'>
@@ -198,3 +198,6 @@ type UserWithoutId = Omit<User2, 'id'>
 
 // Partial - allows to make all properties of an object type optional
 type PartialUser = Partial<User2>
+
+// Required - allows to make all properties of an object type required
+type RequiredUser = Required<User2>

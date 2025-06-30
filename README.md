@@ -384,10 +384,30 @@ interface User {
   id: number
   name: string
   lastName: string
-  age: number
+  age?: number
 }
 
 type Username = Pick<User, 'name' | 'lastName'>
 
 type UserWithoutId = Omit<User, 'id'>
+```
+
+## Partial and Required
+
+- `Partial`: allows to make all properties of an object type optional
+- `Required`: allows to make all properties of an object type required
+
+```typescript
+interface User {
+  id: number
+  name: string
+  lastName?: string // optional property
+  age?: number // optional property
+}
+
+// All properties are optional in PartialUser type
+type PartialUser = Partial<User>
+
+// All properties are required in RequiredUser type
+type RequiredUser = Required<User>
 ```
