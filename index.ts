@@ -224,3 +224,13 @@ let userReturnType: ReturnType<typeof getUser> = {
   name: 'Bob',
   age: 25,
 }
+
+// Parameters - extracts the parameter types of a function
+function add2(a: number, b: number): number {
+  return a + b
+}
+let addParams: Parameters<typeof add2> = [5, 10] // [number, number]
+
+// Use addParams to call the function
+let sum = add2(...addParams)
+console.log(sum) // 15, (5 + 10)
