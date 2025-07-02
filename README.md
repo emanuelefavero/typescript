@@ -56,22 +56,22 @@ A Typescript cheat sheet repository
 
 - Clone the repository and `cd` into it:
 
-```bash
-git clone https://github.com/emanuelefavero/typescript.git
-cd typescript
-```
+  ```bash
+  git clone https://github.com/emanuelefavero/typescript.git
+  cd typescript
+  ```
 
 - Install the dependencies:
 
-```bash
-npm install
-```
+  ```bash
+  npm install
+  ```
 
 - Run the typescript file:
 
-```bash
-npm run dev
-```
+  ```bash
+  npm run dev
+  ```
 
 ---
 
@@ -79,15 +79,15 @@ npm run dev
 
 - Globally:
 
-```bash
-npm install -g typescript
-```
+  ```bash
+  npm install -g typescript
+  ```
 
 - Or locally in your project (better for version control and teams):
 
-```bash
-npm install --save-dev typescript
-```
+  ```bash
+  npm install --save-dev typescript
+  ```
 
 ## File extensions
 
@@ -496,163 +496,163 @@ const mango = new Fruit('mango', true)
 - `Partial`: allows to make all properties of an object type optional
 - `Required`: allows to make all properties of an object type required
 
-```typescript
-interface User {
-  id: number
-  name: string
-  lastName?: string // optional property
-  age?: number // optional property
-}
+  ```typescript
+  interface User {
+    id: number
+    name: string
+    lastName?: string // optional property
+    age?: number // optional property
+  }
 
-// All properties are optional in PartialUser type
-type PartialUser = Partial<User>
+  // All properties are optional in PartialUser type
+  type PartialUser = Partial<User>
 
-// All properties are required in RequiredUser type
-type RequiredUser = Required<User>
-```
+  // All properties are required in RequiredUser type
+  type RequiredUser = Required<User>
+  ```
 
 ## Record
 
 - `Record`: allows to create an object type with a specific set of keys and values
 
-```typescript
-let products: Record<string, number> = {
-  'MacBook Air': 12,
-  'AirPods Pro': 18,
-}
-```
+  ```typescript
+  let products: Record<string, number> = {
+    'MacBook Air': 12,
+    'AirPods Pro': 18,
+  }
+  ```
 
 ## Exclude
 
 - `Exclude`: creates a new type by excluding specified types from a union type
 
-```typescript
-type Theme = 'light' | 'dark' | 'system'
-let themeSwitch: Exclude<Theme, 'system'> = 'light' // light | dark
-```
+  ```typescript
+  type Theme = 'light' | 'dark' | 'system'
+  let themeSwitch: Exclude<Theme, 'system'> = 'light' // light | dark
+  ```
 
 ## ReturnType
 
 - `ReturnType`: allows to extract the return type of a function type
 
-```typescript
-function getUser(): { name: string; age: number } {
-  return {
-    name: 'Jane',
-    age: 28,
+  ```typescript
+  function getUser(): { name: string; age: number } {
+    return {
+      name: 'Jane',
+      age: 28,
+    }
   }
-}
 
-let userReturnType: ReturnType<typeof getUser> = {
-  name: 'Bob',
-  age: 25,
-}
-```
+  let userReturnType: ReturnType<typeof getUser> = {
+    name: 'Bob',
+    age: 25,
+  }
+  ```
 
 ## Parameters
 
 - `Parameters`: allows to extract the parameter types of a function type
 
-```typescript
-function add2(a: number, b: number): number {
-  return a + b
-}
-let addParams: Parameters<typeof add2> = [5, 10] // [number, number]
+  ```typescript
+  function add2(a: number, b: number): number {
+    return a + b
+  }
+  let addParams: Parameters<typeof add2> = [5, 10] // [number, number]
 
-// Use addParams to call the function
-let sum = add2(...addParams)
-console.log(sum) // 15, (5 + 10)
-```
+  // Use addParams to call the function
+  let sum = add2(...addParams)
+  console.log(sum) // 15, (5 + 10)
+  ```
 
 ## Readonly
 
 - `Readonly`: allows to create a type with all properties of an object type as read-only
 
-```typescript
-interface Username2 {
-  firstName: string
-  lastName: string
-}
+  ```typescript
+  interface Username2 {
+    firstName: string
+    lastName: string
+  }
 
-let user4: Readonly<Username2> = {
-  firstName: 'John',
-  lastName: 'Doe',
-}
+  let user4: Readonly<Username2> = {
+    firstName: 'John',
+    lastName: 'Doe',
+  }
 
-// Error: Cannot assign to 'firstName' because it is a read-only property:
-// user4.firstName = 'Jane'
-```
+  // Error: Cannot assign to 'firstName' because it is a read-only property:
+  // user4.firstName = 'Jane'
+  ```
 
 ## keyof
 
 - `keyof`: creates a union type of the keys of an object type
 
-```typescript
-function printUser(user: User, key: keyof User) {
-  console.log(`User ${key}: ${user[key]}`)
-}
-printUser(user, 'name') // User name: Jack
-printUser(user, 'age') // User age: 32
-```
+  ```typescript
+  function printUser(user: User, key: keyof User) {
+    console.log(`User ${key}: ${user[key]}`)
+  }
+  printUser(user, 'name') // User name: Jack
+  printUser(user, 'age') // User age: 32
+  ```
 
 ## Optional Chaining
 
 - `?.`: allows to safely access nested properties of an object without throwing an error if a property is `undefined` or `null`
 
-```typescript
-interface Address {
-  street?: {
-    name: string
-    number: number
+  ```typescript
+  interface Address {
+    street?: {
+      name: string
+      number: number
+    }
   }
-}
 
-const address: Address = {
-  street: {
-    name: 'Main St',
-    number: 123,
-  },
-}
+  const address: Address = {
+    street: {
+      name: 'Main St',
+      number: 123,
+    },
+  }
 
-const streetName = address.street?.name // 'Main St'
-```
+  const streetName = address.street?.name // 'Main St'
+  ```
 
 ## Nullish Coalescing
 
 - `??`: allows to provide a default value when a variable is `null` or `undefined`
 
-```typescript
-const userAge = user.age ?? 18 // if user.age is null or undefined, use 18
-```
+  ```typescript
+  const userAge = user.age ?? 18 // if user.age is null or undefined, use 18
+  ```
 
 ## Null Assertion
 
 - `!`: allows to assert that a variable is not `null` or `undefined`
 
-```typescript
-const streetNumber = address.street!.number // using ! asserts that street is not null or undefined
-```
+  ```typescript
+  const streetNumber = address.street!.number // using ! asserts that street is not null or undefined
+  ```
 
 ## Definitely Typed
 
 - [Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped) is a repository of high-quality TypeScript type definitions for popular libraries and frameworks.
 - You can install types for a library using npm:
 
-```bash
-npm install --save-dev @types/library-name
-```
+  ```bash
+  npm install --save-dev @types/library-name
+  ```
 
-> TIP: VSCode will often suggest installing types for libraries you use, so you can just click on the suggestion to install them.
+  > TIP: VSCode will often suggest installing types for libraries you use, so you can just click on the suggestion to install them.
 
 ## Template Literal Types
 
 - Template literal types allow you to create string types that are based on other string types, similar to template literals in JavaScript.
 
-```typescript
-type Greeting = `Hello, ${string}` // Hello, followed by any string
-let greeting: Greeting = 'Hello, John' // valid
-// let invalidGreeting: Greeting = 'Hi, John' // invalid, will cause a type error
-```
+  ```typescript
+  type Greeting = `Hello, ${string}` // Hello, followed by any string
+  let greeting: Greeting = 'Hello, John' // valid
+  // let invalidGreeting: Greeting = 'Hi, John' // invalid, will cause a type error
+  ```
 
 ## Resources
 
