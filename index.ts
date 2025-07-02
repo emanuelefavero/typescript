@@ -275,3 +275,6 @@ const streetName = address.street?.name // 'Main St'
 
 // Nullish Coalescing - allows to provide a default value when a variable is null or undefined
 const userAge = user.age ?? 18 // if user.age is null or undefined, use 18
+
+// Null Assertion - tells TypeScript that a variable is not null or undefined, even if it cannot be inferred
+const streetNumber = address.street!.number // using ! asserts that street is not null or undefined

@@ -525,3 +525,11 @@ const streetName = address.street?.name // 'Main St'
 ```typescript
 const userAge = user.age ?? 18 // if user.age is null or undefined, use 18
 ```
+
+## Null Assertion
+
+- `!`: allows to assert that a variable is not `null` or `undefined`
+
+```typescript
+const streetNumber = address.street!.number // using ! asserts that street is not null or undefined
+```
