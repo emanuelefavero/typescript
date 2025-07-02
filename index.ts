@@ -282,3 +282,8 @@ const streetNumber = address.street!.number // using ! asserts that street is no
 // Definitely Typed - A community maintained repository of high-quality TypeScript type definitions for popular libraries and frameworks.
 // You can install types for a library using npm:
 // npm install --save-dev @types/library-name
+
+// Template Literal Types - allows to create a type that is a specific string or number
+type Greeting = `Hello, ${string}` // Hello, followed by any string
+let greeting: Greeting = 'Hello, John' // valid
+// let invalidGreeting: Greeting = 'Hi, John' // invalid, will cause a type

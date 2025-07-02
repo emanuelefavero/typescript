@@ -544,3 +544,13 @@ npm install --save-dev @types/library-name
 ```
 
 > Tip: VSCode will often suggest installing types for libraries you use, so you can just click on the suggestion to install them.
+
+## Template Literal Types
+
+- Template literal types allow you to create string types that are based on other string types, similar to template literals in JavaScript.
+
+```typescript
+type Greeting = `Hello, ${string}` // Hello, followed by any string
+let greeting: Greeting = 'Hello, John' // valid
+// let invalidGreeting: Greeting = 'Hi, John' // invalid, will cause a type error
+```
