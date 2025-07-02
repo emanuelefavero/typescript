@@ -4,13 +4,16 @@ A Typescript cheat sheet repository
 
 ## Install
 
-> _Note:_
->
-> - _you need to already have npm installed_
-> - _when working with a team, you should not use typescript globally to avoid version conflicts (remove `-g` flag)_
+- Globally:
 
 ```bash
 npm install -g typescript
+```
+
+- Or locally in your project (better for version control and teams):
+
+```bash
+npm install --save-dev typescript
 ```
 
 ## File extensions

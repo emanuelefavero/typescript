@@ -1,0 +1,26 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "A Typescript cheat sheet repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emanuelefavero/typescript.git"
+  },
+  "keywords": [],
+  "author": "Emanuele Favero <emafaux89@gmail.com> (https://emanuelefavero.com/)",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/emanuelefavero/typescript/issues"
+  },
+  "homepage": "https://github.com/emanuelefavero/typescript#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
