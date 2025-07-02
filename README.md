@@ -495,3 +495,25 @@ function printUser(user: User, key: keyof User) {
 printUser(user, 'name') // User name: Jack
 printUser(user, 'age') // User age: 32
 ```
+
+## Optional Chaining
+
+- `?.`: allows to safely access nested properties of an object without throwing an error if a property is `undefined` or `null`
+
+```typescript
+interface Address {
+  street?: {
+    name: string
+    number: number
+  }
+}
+
+const address: Address = {
+  street: {
+    name: 'Main St',
+    number: 123,
+  },
+}
+
+const streetName = address.street?.name // 'Main St'
+```

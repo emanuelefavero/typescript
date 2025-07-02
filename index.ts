@@ -255,3 +255,20 @@ function printUser(user: User, key: keyof User) {
 }
 printUser(user, 'name') // User name: Jack
 printUser(user, 'age') // User age: 32
+
+// Optional Chaining - allows to safely access deeply nested properties without having to check for null or undefined at each level
+interface Address {
+  street?: {
+    name: string
+    number: number
+  }
+}
+
+const address: Address = {
+  street: {
+    name: 'Main St',
+    number: 123,
+  },
+}
+
+const streetName = address.street?.name // 'Main St'
