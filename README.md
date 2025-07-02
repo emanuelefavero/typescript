@@ -197,7 +197,9 @@ TIP: Try to avoid using `any` type
 ```typescript
 let customerID: any = '123'
 let customerIDAsNumber = customerID as number
-let customerIDAsNumber2 = <number>customerID
+
+// Alternatively, you can use the angle-bracket syntax (not always recommended, especially in JSX files):
+// let customerIDAsNumber2 = <number>customerID
 ```
 
 ---

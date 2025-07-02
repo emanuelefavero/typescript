@@ -1,6 +1,7 @@
 "use strict";
 // INSTALL TYPESCRIPT GLOBALLY
 // npm install -g typescript
+var _a, _b;
 // RUN APP:
 // tsc --watch
 // nodemon index.js
@@ -55,7 +56,8 @@ const multiply = (a, b) => a * b;
 // TIP: Try to avoid using any type
 let customerID = '123';
 let customerIDAsNumber = customerID;
-let customerIDAsNumber2 = customerID;
+// Alternatively, you can use the angle-bracket syntax (not always recommended, especially in JSX files):
+// let customerIDAsNumber2 = <number>customerID
 // ------------------------------------------------------------
 // Classes
 class Person {
@@ -161,3 +163,22 @@ let user4 = {
 };
 // Error: Cannot assign to 'firstName' because it is a read-only property:
 // user4.firstName = 'Jane'
+// keyof - creates a union type of the keys of an object type
+function printUser(user, key) {
+    console.log(`User ${key}: ${user[key]}`);
+}
+printUser(user, 'name'); // User name: Jack
+printUser(user, 'age'); // User age: 32
+const address = {
+    street: {
+        name: 'Main St',
+        number: 123,
+    },
+};
+const streetName = (_a = address.street) === null || _a === void 0 ? void 0 : _a.name; // 'Main St'
+// Nullish Coalescing - allows to provide a default value when a variable is null or undefined
+const userAge = (_b = user.age) !== null && _b !== void 0 ? _b : 18; // if user.age is null or undefined, use 18
+// Null Assertion - tells TypeScript that a variable is not null or undefined, even if it cannot be inferred
+const streetNumber = address.street.number; // using ! asserts that street is not null or undefined
+let greeting = 'Hello, John'; // valid
+// let invalidGreeting: Greeting = 'Hi, John' // invalid, will cause a type

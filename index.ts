@@ -90,7 +90,9 @@ const multiply: MyMathFunction = (a: number, b: number): number => a * b
 // TIP: Try to avoid using any type
 let customerID: any = '123'
 let customerIDAsNumber = customerID as number
-let customerIDAsNumber2 = <number>customerID
+
+// Alternatively, you can use the angle-bracket syntax (not always recommended, especially in JSX files):
+// let customerIDAsNumber2 = <number>customerID
 
 // ------------------------------------------------------------
 // Classes
