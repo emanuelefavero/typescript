@@ -236,7 +236,6 @@ let sum = add2(...addParams)
 console.log(sum) // 15, (5 + 10)
 
 // Readonly - makes all properties in an object type read-only
-
 interface Username2 {
   firstName: string
   lastName: string
@@ -249,3 +248,10 @@ let user4: Readonly<Username2> = {
 
 // Error: Cannot assign to 'firstName' because it is a read-only property:
 // user4.firstName = 'Jane'
+
+// keyof - creates a union type of the keys of an object type
+function printUser(user: User, key: keyof User) {
+  console.log(`User ${key}: ${user[key]}`)
+}
+printUser(user, 'name') // User name: Jack
+printUser(user, 'age') // User age: 32

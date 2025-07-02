@@ -483,3 +483,15 @@ let user4: Readonly<Username2> = {
 // Error: Cannot assign to 'firstName' because it is a read-only property:
 // user4.firstName = 'Jane'
 ```
+
+## keyof
+
+- `keyof`: creates a union type of the keys of an object type
+
+```typescript
+function printUser(user: User, key: keyof User) {
+  console.log(`User ${key}: ${user[key]}`)
+}
+printUser(user, 'name') // User name: Jack
+printUser(user, 'age') // User age: 32
+```
