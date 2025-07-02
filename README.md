@@ -50,6 +50,8 @@ A Typescript cheat sheet repository
   - [Template Literal Types](#template-literal-types)
   - [Resources](#resources)
 
+&nbsp;
+
 ## HOW TO RUN this project
 
 > Make sure you have Node.js installed on your machine
@@ -73,7 +75,11 @@ A Typescript cheat sheet repository
   npm run dev
   ```
 
+&nbsp;
+
 ---
+
+&nbsp;
 
 ## Install Typescript
 
