@@ -2,6 +2,54 @@
 
 A Typescript cheat sheet repository
 
+## Table of Contents
+
+- [Typescript](#typescript)
+  - [Table of Contents](#table-of-contents)
+  - [HOW TO RUN this project](#how-to-run-this-project)
+  - [Install Typescript](#install-typescript)
+  - [File extensions](#file-extensions)
+  - [Compile](#compile)
+  - [Run](#run)
+  - [Run with nodemon](#run-with-nodemon)
+  - [Config file](#config-file)
+  - [Basic Types](#basic-types)
+  - [Union](#union)
+  - [Objects](#objects)
+    - [Empty object](#empty-object)
+    - [Object with any values](#object-with-any-values)
+    - [Objects with optional properties](#objects-with-optional-properties)
+    - [Objects with readonly properties](#objects-with-readonly-properties)
+  - [Array of my defined objects](#array-of-my-defined-objects)
+  - [Functions](#functions)
+  - [Interfaces](#interfaces)
+  - [Function interfaces](#function-interfaces)
+  - [Type assertion](#type-assertion)
+  - [Classes](#classes)
+    - [Classic way of declaring properties](#classic-way-of-declaring-properties)
+    - [readonly property](#readonly-property)
+    - [private property](#private-property)
+    - [static property](#static-property)
+    - [Getter and Setter](#getter-and-setter)
+  - [Extending Classes](#extending-classes)
+  - [Class Interface](#class-interface)
+  - [Generics](#generics)
+  - [Enum](#enum)
+  - [Pick and Omit](#pick-and-omit)
+  - [Partial and Required](#partial-and-required)
+  - [Record](#record)
+  - [Exclude](#exclude)
+  - [ReturnType](#returntype)
+  - [Parameters](#parameters)
+  - [Readonly](#readonly)
+  - [keyof](#keyof)
+  - [Optional Chaining](#optional-chaining)
+  - [Nullish Coalescing](#nullish-coalescing)
+  - [Null Assertion](#null-assertion)
+  - [Definitely Typed](#definitely-typed)
+  - [Template Literal Types](#template-literal-types)
+  - [Resources](#resources)
+
 ## HOW TO RUN this project
 
 > Make sure you have Node.js installed on your machine
@@ -92,9 +140,8 @@ nodemon index.ts
 
 ## Config file
 
-`tsconfig.json`
-TIP: You can generate a config file with `tsc --init`
-
+- You can generate the config file with `tsc --init`
+- Config file: `tsconfig.json`
 - use the tsconfig file in this repo as a reference
 - specify the `outDir` to compile to a specific folder
 - specify the `rootDir` to compile from a specific folder
@@ -129,7 +176,7 @@ union = 1
 
 ## Objects
 
-TIP: You can also use interfaces (interface User {...}) -see below
+> TIP: You can also use interfaces (interface User {...}) -see below
 
 ```typescript
 type User = {
@@ -205,7 +252,9 @@ function log(message: string | number): void {
 }
 ```
 
-## Interfaces (useful when declaring objects)
+## Interfaces
+
+> TIP: Useful when declaring objects
 
 ```typescript
 interface UserInterface {
@@ -223,7 +272,9 @@ const user1: UserInterface = {
 user1.age = 47
 ```
 
-## Function interfaces - define the shape of a function
+## Function interfaces
+
+> TIP: Define the shape of a function
 
 ```typescript
 interface MyMathFunction {
@@ -234,17 +285,19 @@ interface MyMathFunction {
 const multiply: MyMathFunction = (a: number, b: number): number => a * b
 ```
 
-## Type assertion (when you know the type of a variable)
-
-TIP: Try to avoid using `any` type
+## Type assertion
 
 ```typescript
 let customerID: any = '123'
+
+// Treat customerID as a number
 let customerIDAsNumber = customerID as number
 
 // Alternatively, you can use the angle-bracket syntax (not always recommended, especially in JSX files):
 // let customerIDAsNumber2 = <number>customerID
 ```
+
+> TIP: Try to avoid using `any` type as much as possible
 
 ---
 
@@ -267,37 +320,37 @@ const person2 = new Person(2, 'John')
 
 - use the one you prefer
 
-```typescript
-class Person {
-  id: number
-  name: string
+  ```typescript
+  class Person {
+    id: number
+    name: string
 
-  constructor(id: number, name: string) {
-    this.id = id
-    this.name = name
+    constructor(id: number, name: string) {
+      this.id = id
+      this.name = name
+    }
   }
-}
-```
+  ```
 
 ### readonly property
 
 - property that can not be modified
 
-```typescript
-class Person {
-  constructor(public readonly name: string) {}
-}
-```
+  ```typescript
+  class Person {
+    constructor(public readonly name: string) {}
+  }
+  ```
 
 ### private property
 
 - property that can only be accessed within the class
 
-```typescript
-class User {
-  private _fullName: string = ''
-}
-```
+  ```typescript
+  class User {
+    private _fullName: string = ''
+  }
+  ```
 
 > TIP: class properties are public by default. We can also define protected properties (those will be only accessible within the class and its subclasses)
 >
@@ -307,12 +360,12 @@ class User {
 
 - property that can only be accessed without creating an instance of the class
 
-```typescript
-class User {
-  static userName = 'John'
-}
-User.userName
-```
+  ```typescript
+  class User {
+    static userName = 'John'
+  }
+  User.userName
+  ```
 
 ### Getter and Setter
 
@@ -336,7 +389,7 @@ console.log(user1.fullName)
 
 > Getters and setters can be used to perform additional tasks when a property is accessed or modified
 
-## Extending Classes (Subclasses)
+## Extending Classes
 
 ```typescript
 class Employee extends Person {
@@ -378,65 +431,65 @@ const banana = new Fruit('banana', false)
 const mango = new Fruit('mango', true)
 ```
 
-## Generics (allow us to create reusable components)
+## Generics
 
-`<T>` is a placeholder that allows to later define the type of the generic
+- allow us to create reusable components that can work with any data type
 
-```typescript
-function getId<T>(id: T): T {
-  return id
-}
-const numberId = getId<number>(1) // this function call will only accept numbers
-const stringId = getId<string>('1') // this function call will only accept str
-```
+  > `<T>` is a placeholder that allows to later define the type of the generic
 
-## Enum - allows to define a set of enumerated named constants
+  ```typescript
+  function getId<T>(id: T): T {
+    return id
+  }
+  const numberId = getId<number>(1) // this function call will only accept numbers
+  const stringId = getId<string>('1') // this function call will only accept str
+  ```
 
-```typescript
-enum Color {
-  Red,
-  Green,
-  Blue,
-}
-let color: Color = Color.Blue // 2
-let colorName: string = Color[2] // 'Blue'
+## Enum
 
-enum Color2 {
-  Red = 1,
-  Green,
-  Blue,
-}
-let color2: Color2 = Color2.Blue // 3
+- Allows to define a set of enumerated named constants
 
-enum Color3 {
-  Red = '#ff0000',
-  Green = '#00ff00',
-  Blue = '#0000ff',
-}
-let color3: Color3 = Color3.Blue // '#0000ff'
-```
+  ```typescript
+  enum Color {
+    Red,
+    Green,
+    Blue,
+  }
+  let color: Color = Color.Blue // 2
+  let colorName: string = Color[2] // 'Blue'
 
-- [Typescript Docs](https://www.typescriptlang.org/docs/)
-- [Download Typescript](https://www.typescriptlang.org/download)
-- [Online Playground](https://www.typescriptlang.org/play)
+  enum Color2 {
+    Red = 1,
+    Green,
+    Blue,
+  }
+  let color2: Color2 = Color2.Blue // 3
+
+  enum Color3 {
+    Red = '#ff0000',
+    Green = '#00ff00',
+    Blue = '#0000ff',
+  }
+  let color3: Color3 = Color3.Blue // '#0000ff'
+  ```
 
 ## Pick and Omit
 
 - `Pick`: create a new type from an existing type by picking some properties
 - `Omit`: create a new type from an existing type by omitting some properties
 
-```typescript
-interface User {
-  id: number
-  name: string
-  lastName: string
-  age?: number
-}
+  ```typescript
+  interface User {
+    id: number
+    name: string
+    lastName: string
+    age?: number
+  }
 
-type Username = Pick<User, 'name' | 'lastName'>
+  type Username = Pick<User, 'name' | 'lastName'>
 
-type UserWithoutId = Omit<User, 'id'>
-```
+  type UserWithoutId = Omit<User, 'id'>
+  ```
 
 ## Partial and Required
 
@@ -589,7 +642,7 @@ const streetNumber = address.street!.number // using ! asserts that street is no
 npm install --save-dev @types/library-name
 ```
 
-> Tip: VSCode will often suggest installing types for libraries you use, so you can just click on the suggestion to install them.
+> TIP: VSCode will often suggest installing types for libraries you use, so you can just click on the suggestion to install them.
 
 ## Template Literal Types
 
@@ -600,3 +653,17 @@ type Greeting = `Hello, ${string}` // Hello, followed by any string
 let greeting: Greeting = 'Hello, John' // valid
 // let invalidGreeting: Greeting = 'Hi, John' // invalid, will cause a type error
 ```
+
+## Resources
+
+- [Typescript Docs](https://www.typescriptlang.org/docs/)
+- [Download Typescript](https://www.typescriptlang.org/download)
+- [Online Playground](https://www.typescriptlang.org/play)
+
+&nbsp;
+
+---
+
+&nbsp;
+
+[**Go To Top &nbsp; ⬆️**](#typescript)
