@@ -533,3 +533,14 @@ const userAge = user.age ?? 18 // if user.age is null or undefined, use 18
 ```typescript
 const streetNumber = address.street!.number // using ! asserts that street is not null or undefined
 ```
+
+## Definitely Typed
+
+- [Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped) is a repository of high-quality TypeScript type definitions for popular libraries and frameworks.
+- You can install types for a library using npm:
+
+```bash
+npm install --save-dev @types/library-name
+```
+
+> Tip: VSCode will often suggest installing types for libraries you use, so you can just click on the suggestion to install them.
