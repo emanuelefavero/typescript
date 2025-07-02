@@ -4,10 +4,10 @@ A Typescript cheat sheet repository
 
 ## Install
 
-_Note:_
-
-- _you need to already have npm installed_
-- _when working with a team, you should not use typescript globally to avoid version conflicts_
+> _Note:_
+>
+> - _you need to already have npm installed_
+> - _when working with a team, you should not use typescript globally to avoid version conflicts (remove `-g` flag)_
 
 ```bash
 npm install -g typescript
@@ -15,29 +15,45 @@ npm install -g typescript
 
 ## File extensions
 
-`.ts`
-`.tsx` (for react jsx files)
+- `.ts`
+- `.tsx` (for react jsx files)
 
 ## Compile
 
-```bash
-tsc --watch
-```
+> TIP: You can use `tsc --init` to generate a `tsconfig.json` file with default settings
+
+- Compile typescript files to javascript
+
+  ```bash
+  tsc --watch
+  ```
+
+- Use `nodemon` in another terminal to automatically run the compiled javascript file after each change
+
+  ```bash
+  nodemon index.js
+  ```
 
 ## Run
 
-```bash
-node index.js
-```
+- You can also use `ts-node` to run typescript files directly without compiling them first
 
-TIP: You can use `nodemon` to watch for changes and restart the server automatically
+  ```bash
+  npm install -g ts-node
+  ts-node index.ts
+  ```
 
-```bash
-npm install -g nodemon
-nodemon index.js
-```
+- Node.js 24 supports typescript natively, so you can run typescript files directly without `ts-node` or `tsc`
 
-OR use `nodemon` directly with `.ts` files
+  > BEWARE: Some typescript features are not supported yet in Node.js, as typescript will run in `strip-only mode`
+
+  ```bash
+  node index.ts
+  ```
+
+## Run with nodemon
+
+This is the easiest way to develop typescript files, as it will automatically restart the server when you make changes
 
 ```bash
 nodemon index.ts
