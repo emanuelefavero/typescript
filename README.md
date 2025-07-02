@@ -2,7 +2,32 @@
 
 A Typescript cheat sheet repository
 
-## Install
+## HOW TO RUN this project
+
+> Make sure you have Node.js installed on your machine
+
+- Clone the repository and `cd` into it:
+
+```bash
+git clone https://github.com/emanuelefavero/typescript.git
+cd typescript
+```
+
+- Install the dependencies:
+
+```bash
+npm install
+```
+
+- Run the typescript file:
+
+```bash
+npm run dev
+```
+
+---
+
+## Install Typescript
 
 - Globally:
 
@@ -46,7 +71,7 @@ npm install --save-dev typescript
   ts-node index.ts
   ```
 
-- Node.js 24 supports typescript natively, so you can run typescript files directly without `ts-node` or `tsc`
+- `Node.js v24` supports typescript natively, so you can run typescript files directly without `ts-node` or `tsc`
 
   > BEWARE: Some typescript features are not supported yet in Node.js, as typescript will run in `strip-only mode`
 
