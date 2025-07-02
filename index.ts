@@ -272,3 +272,6 @@ const address: Address = {
 }
 
 const streetName = address.street?.name // 'Main St'
+
+// Nullish Coalescing - allows to provide a default value when a variable is null or undefined
+const userAge = user.age ?? 18 // if user.age is null or undefined, use 18
